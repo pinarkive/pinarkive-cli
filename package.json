@@ -1,6 +1,6 @@
 {
   "name": "@pinarkive/pinarkive-cli",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Command-line interface for the Pinarkive API v3",
   "main": "dist/cli.js",
   "bin": {
