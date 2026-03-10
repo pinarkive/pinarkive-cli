@@ -1,4 +1,4 @@
-# pinarkive-cli
+# @pinarkive/pinarkive-cli
 
 Command-line interface for the **Pinarkive API v3**. Upload files, pin CIDs, list files, delete files, inspect clusters, scaffold from templates, share encrypted files, run diagnostics, and watch folders—similar to the Vercel or Docker CLIs.
 
@@ -7,7 +7,7 @@ Command-line interface for the **Pinarkive API v3**. Upload files, pin CIDs, lis
 ### Global install (recommended)
 
 ```bash
-npm install -g pinarkive-cli
+npm install -g @pinarkive/pinarkive-cli
 ```
 
 Then run:
@@ -157,9 +157,9 @@ https://pinarkive.com/#/bafy...:mypass
 
 ## API base URL
 
-All requests use: `https://api.pinarkive.com/v3`
+All requests use: `https://api.pinarkive.com/api/v3`
 
-Authentication: Bearer token (API key) in the `Authorization` header.
+Authentication: Bearer token (API key) in the `Authorization` header. The CLI uses the official [@pinarkive/pinarkive-sdk-ts](https://www.npmjs.com/package/@pinarkive/pinarkive-sdk-ts) for all API calls.
 
 ## Scripts
 
@@ -172,7 +172,7 @@ Authentication: Bearer token (API key) in the `Authorization` header.
 ```
 src/
   cli.ts          # Commander entry, command registration
-  api.ts          # Axios / HTTP helpers, base URL, auth
+  api.ts          # Pinarkive SDK client, base URL, auth
   config.ts       # Read/write ~/.pinarkive/config.json
   crypto-share.ts # AES encryption for share command
   types/

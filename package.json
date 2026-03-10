@@ -1,6 +1,6 @@
 {
-  "name": "pinarkive-cli",
-  "version": "1.0.0",
+  "name": "@pinarkive/pinarkive-cli",
+  "version": "1.0.1",
   "description": "Command-line interface for the Pinarkive API v3",
   "main": "dist/cli.js",
   "bin": {
@@ -44,5 +44,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

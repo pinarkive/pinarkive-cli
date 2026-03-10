@@ -4,5 +4,6 @@ dist/
 .env
 .env.local
 
+*.*.*.tgz
 # Internal doc for documentation agent (do not publish)
 CLI.md
