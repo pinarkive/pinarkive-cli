@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.log
+.env
+.env.local
+
+# Internal doc for documentation agent (do not publish)
+CLI.md
