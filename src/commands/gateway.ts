@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { getGatewayUrl } from '../api';
+import { getGatewayUrl } from '../api.js'
 
 export async function gatewayCommand(cid: string): Promise<void> {
   if (!cid?.trim()) {

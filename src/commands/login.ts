@@ -1,6 +1,6 @@
 import * as readline from 'readline';
 import chalk from 'chalk';
-import { setApiKey, getConfigPath } from '../config';
+import { setApiKey, getConfigPath } from '../config.js'
 
 export async function loginCommand(): Promise<void> {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });

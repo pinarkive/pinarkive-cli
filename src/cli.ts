@@ -1,30 +1,38 @@
 #!/usr/bin/env node
 
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { Command } from 'commander';
 import chalk from 'chalk';
-import { loginCommand } from './commands/login';
-import { uploadCommand } from './commands/upload';
-import { pinCommand } from './commands/pin';
-import { filesCommand } from './commands/files';
-import { deleteCommand } from './commands/delete';
-import { clustersCommand } from './commands/clusters';
-import { gatewayCommand } from './commands/gateway';
-import { openCommand } from './commands/open';
-import { initCommand } from './commands/init';
-import { shareCommand } from './commands/share';
-import { whoamiCommand } from './commands/whoami';
-import { doctorCommand } from './commands/doctor';
-import { watchCommand } from './commands/watch';
-import { configCommand } from './commands/config';
-import { statusCommand } from './commands/status';
-import { syncCommand } from './commands/sync';
+import { loginCommand } from './commands/login.js';
+import { uploadCommand } from './commands/upload.js';
+import { pinCommand } from './commands/pin.js';
+import { filesCommand } from './commands/files.js';
+import { deleteCommand } from './commands/delete.js';
+import { clustersCommand } from './commands/clusters.js';
+import { gatewayCommand } from './commands/gateway.js';
+import { openCommand } from './commands/open.js';
+import { initCommand } from './commands/init.js';
+import { shareCommand } from './commands/share.js';
+import { whoamiCommand } from './commands/whoami.js';
+import { doctorCommand } from './commands/doctor.js';
+import { watchCommand } from './commands/watch.js';
+import { configCommand } from './commands/config.js';
+import { statusCommand } from './commands/status.js';
+import { syncCommand } from './commands/sync.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const { version } = JSON.parse(
+  readFileSync(join(__dirname, '../package.json'), 'utf8')
+) as { version: string };
 
 const program = new Command();
 
 program
   .name('pinarkive')
   .description('CLI for the Pinarkive API v3')
-  .version('1.0.1');
+  .version(version);
 
 program
   .command('login')
@@ -110,7 +118,7 @@ program
   .option('-w, --watch', 'After sync, watch for new files')
   .action(syncCommand);
 
-program.parseAsync().catch((err: unknown) => {
+program.parseAsync(process.argv).catch((err: unknown) => {
   const message = err instanceof Error ? err.message : String(err);
   console.error(chalk.red(message));
   process.exit(1);

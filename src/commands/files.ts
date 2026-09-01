@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import ora from 'ora';
-import { listUploads } from '../api';
+import { listUploads } from '../api.js'
 
 export async function filesCommand(): Promise<void> {
   const spinner = ora('Loading files...').start();

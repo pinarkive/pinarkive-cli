@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import open from 'open';
-import { getGatewayUrl } from '../api';
+import { getGatewayUrl } from '../api.js'
 
 export async function openCommand(cid: string): Promise<void> {
   if (!cid?.trim()) {

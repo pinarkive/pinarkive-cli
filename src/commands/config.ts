@@ -4,8 +4,8 @@ import {
   getConfigValue,
   setConfigValue,
   isAllowedConfigKey,
-} from '../config';
-import { GATEWAY_BASE } from '../api';
+} from '../config.js'
+import { GATEWAY_BASE } from '../api.js'
 
 const DISPLAY_KEYS = ['apiKey', 'cluster', 'gateway'] as const;
 const MASKED_KEYS = new Set(['apiKey']);

@@ -3,7 +3,7 @@ import ora from 'ora';
 import * as path from 'path';
 import * as fs from 'fs';
 import chokidar from 'chokidar';
-import { uploadFile } from '../api';
+import { uploadFile } from '../api.js'
 
 const MANIFEST_FILENAME = '.pinarkive-sync.json';
 
@@ -96,8 +96,9 @@ export async function syncCommand(
       }
     });
 
-    watcher.on('error', (err: Error) => {
-      console.error(chalk.red('Watcher error:'), err.message);
+    watcher.on('error', (err: unknown) => {
+      const message = err instanceof Error ? err.message : String(err);
+      console.error(chalk.red('Watcher error:'), message);
     });
   }
 }

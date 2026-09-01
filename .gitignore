@@ -3,6 +3,7 @@ dist/
 *.log
 .env
 .env.local
+graphify-out/
 
 *.*.*.tgz
 # Internal doc for documentation agent (do not publish)

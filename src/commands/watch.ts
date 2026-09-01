@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import * as path from 'path';
 import * as fs from 'fs';
 import chokidar from 'chokidar';
-import { uploadFile } from '../api';
+import { uploadFile } from '../api.js'
 
 export async function watchCommand(folder: string): Promise<void> {
   const absoluteDir = path.resolve(folder);
@@ -35,7 +35,8 @@ export async function watchCommand(folder: string): Promise<void> {
     }
   });
 
-  watcher.on('error', (err: Error) => {
-    console.error(chalk.red('Watcher error:'), err.message);
+  watcher.on('error', (err: unknown) => {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error(chalk.red('Watcher error:'), message);
   });
 }

@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import ora from 'ora';
-import { getMe } from '../api';
+import { getMe } from '../api.js'
 
 export async function whoamiCommand(): Promise<void> {
   const spinner = ora('Loading...').start();

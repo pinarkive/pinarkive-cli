@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import ora from 'ora';
-import { uploadFile } from '../api';
+import { uploadFile } from '../api.js'
 
 export async function uploadCommand(file: string): Promise<void> {
   const spinner = ora('Uploading file...').start();

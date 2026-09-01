@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import ora from 'ora';
-import { listClusters } from '../api';
+import { listClusters } from '../api.js'
 
 export async function clustersCommand(): Promise<void> {
   const spinner = ora('Loading clusters...').start();
