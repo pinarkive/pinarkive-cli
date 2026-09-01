@@ -1,6 +1,6 @@
 import chalk from 'chalk';
-import { getConfig, getApiKey } from '../config';
-import { API_BASE_URL, GATEWAY_BASE, getClientIfAuthenticated } from '../api';
+import { getConfig } from '../config.js';
+import { API_BASE_URL, GATEWAY_BASE, getClientIfAuthenticated } from '../api.js'
 
 async function fetchWithTimeout(url: string, ms = 5000): Promise<Response> {
   const controller = new AbortController();

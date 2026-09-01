@@ -1,7 +1,7 @@
 import { PinarkiveClient, PinarkiveAPIError } from '@pinarkive/pinarkive-sdk-ts';
 import * as fs from 'fs';
 import * as path from 'path';
-import { getApiKey, getConfigValue } from './config';
+import { getApiKey, getConfigValue } from './config.js'
 
 export { PinarkiveAPIError };
 
@@ -90,11 +90,10 @@ export async function listUploads(): Promise<
   const out: Array<{ cid: string; size?: number; cluster?: string; created_at?: string }> = [];
   let page = 1;
   const limit = 100;
-  let total = 0;
-  do {
+  let hasMore = true;
+  while (hasMore) {
     const res = await client.listUploads(page, limit);
     const items = res.uploads ?? [];
-    total = res.pagination?.total ?? items.length;
     for (const item of items) {
       out.push({
         cid: item.cid ?? '',
@@ -103,8 +102,10 @@ export async function listUploads(): Promise<
         created_at: item.uploadedAt,
       });
     }
+    const total = res.pagination?.total ?? out.length;
+    hasMore = items.length > 0 && out.length < total;
     page++;
-  } while (out.length < total && out.length > 0);
+  }
   return out;
 }
 

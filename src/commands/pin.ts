@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import ora from 'ora';
-import { pinCid } from '../api';
+import { pinCid } from '../api.js'
 
 export async function pinCommand(cid: string): Promise<void> {
   if (!cid?.trim()) {

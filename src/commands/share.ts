@@ -3,8 +3,8 @@ import ora from 'ora';
 import * as path from 'path';
 import * as fs from 'fs';
 import * as readline from 'readline';
-import { encryptFile } from '../crypto-share';
-import { uploadBuffer, getShareLink } from '../api';
+import { encryptFile } from '../crypto-share.js'
+import { uploadBuffer, getShareLink } from '../api.js'
 
 export interface ShareOptions {
   password?: string;

@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import ora from 'ora';
-import { deleteFile } from '../api';
+import { deleteFile } from '../api.js'
 
 export async function deleteCommand(cid: string): Promise<void> {
   if (!cid?.trim()) {
