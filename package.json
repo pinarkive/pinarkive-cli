@@ -35,7 +35,7 @@
     "degit": "^3.8.0",
     "inquirer": "^14.2.0",
     "open": "^11.0.0",
-    "ora": "^8.0.1"
+    "ora": "^9.4.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.0",
